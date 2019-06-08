@@ -1,10 +1,41 @@
 
 function renderMovies(movies) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
+    
+    var whole=movies.map(function(i){
+
+        return `
+        <div style="background-color:gray; "class="d-flex text-center mt-5">
+            
+            <img src='${i.poster}' alt='movies poster'>
+
+            <div style="color:white;"> 
+            
+            <h1>${i.title}</h1>
+
+            <p>${i.year}</p>
+
+            <h2>IMDB: ${i.imdbRating}/10</h2>
+            <h2>Rotten Tomatoes: ${i.rottenTomatoesRating*100}%</h2>
+
+
+            
+            
+            </div>
+            
+
         </div>
     `
+
+    })
+
+    return whole.join('');
+        
+      
+    
+    
+
+
+   
 }
 
 function movies() {
