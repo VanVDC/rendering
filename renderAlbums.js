@@ -1,10 +1,56 @@
 
 function renderAlbums(albums) {
-    return `
+
+    var whole=albums.map(function(i){
+
+        
+        var alb=i.map(function(j){
+            return `
+            <div class="text-center mt-5">
+                <div>
+                    <img src='${i.albumCover}'>
+                    <h2>${i.title}</h2>  
+                </div>
+
+                
+    
+            </div>
+        `
+            var song=j.map(function(s){
+                return `
+                <div>
+                     <p>&#9658 ${s.title} ${s.length}</p>
+                 </div>
+                
+
+
+                `
+
+
+            })
+
+            return song.join('');
+
+        })
+
+        return `
+
         <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
+            <h1>${i.artist}</h1>
+            <hr>
+            
+            ${alb.join('')}
+            
         </div>
-    `
+          `
+
+        
+
+
+    })
+    return whole.join('');
+
+
 }
 
 function albums() {
